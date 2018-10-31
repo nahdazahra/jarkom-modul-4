@@ -184,6 +184,7 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan ne
 
 **Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**.
 --> bikin gambar baru
+![1](/assets/treecidr2.PNG)
 
 **Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan pohon.
 --> bikin baru gambarnya
