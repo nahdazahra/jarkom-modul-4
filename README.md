@@ -1,33 +1,34 @@
-# SUBNETTING AND ROUTING
+SUBNETTING AND ROUTING
+======================
 
 Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
-- [SUBNETTING AND ROUTING](#subnetting-and-routing)
-    - [A. PENGENALAN](#a-pengenalan)
-        - [Istilah](#istilah)
-        - [IP ADDRESS](#ip-address)
-        - [Subnet](#subnet)
-        - [Network ID, Broadcast Address, dan Available Hosts](#network-id-broadcast-address-dan-available-hosts)
-            - [Network ID](#network-id)
-            - [Broadcast Address](#broadcast-address)
-            - [Available Hosts](#available-hosts)
-        - [IP Publik dan IP Privat](#ip-publik-dan-ip-privat)
-        - [Let’s Wrap and Warm Up!](#lets-wrap-and-warm-up)
-        - [LATIHAN!](#latihan)
-    - [B. SUBNETTING](#b-subnetting)
-        - [Pengertian](#pengertian)
-        - [Perhitungan Subnet](#perhitungan-subnet)
-            - [A. Classful](#a-classful)
-            - [B. Classless](#b-classless)
-                - [1. VLSM (Variable Length Subnet Masking)](#1-vlsm-variable-length-subnet-masking)
-                - [2. CIDR (Classless Inter Domain Routing)](#2-cidr-classless-inter-domain-routing)
-    - [C. ROUTING](#c-routing)
-        - [Pengertian](#pengertian)
-        - [Praktik](#praktik)
-            - [1) Membuat Topologi](#1-membuat-topologi)
-            - [2) Subnetting](#2-subnetting)
-            - [3) Routing](#3-routing)
-            - [4) Testing](#4-testing)
+
+- [A. PENGENALAN](#a-pengenalan)
+    - [Istilah](#istilah)
+    - [IP ADDRESS](#ip-address)
+    - [Subnet](#subnet)
+    - [Network ID, Broadcast Address, dan Available Hosts](#network-id-broadcast-address-dan-available-hosts)
+        - [Network ID](#network-id)
+        - [Broadcast Address](#broadcast-address)
+        - [Available Hosts](#available-hosts)
+    - [IP Publik dan IP Privat](#ip-publik-dan-ip-privat)
+    - [Let’s Wrap and Warm Up!](#lets-wrap-and-warm-up)
     - [LATIHAN!](#latihan)
+- [B. SUBNETTING](#b-subnetting)
+    - [Pengertian](#pengertian)
+    - [Perhitungan Subnet](#perhitungan-subnet)
+        - [A. Classful](#a-classful)
+        - [B. Classless](#b-classless)
+            - [1. VLSM (Variable Length Subnet Masking)](#1-vlsm-variable-length-subnet-masking)
+            - [2. CIDR (Classless Inter Domain Routing)](#2-cidr-classless-inter-domain-routing)
+- [C. ROUTING](#c-routing)
+    - [Pengertian](#pengertian-1)
+    - [Praktik](#praktik)
+        - [1) Membuat Topologi](#1-membuat-topologi)
+        - [2) Subnetting](#2-subnetting)
+        - [3) Routing](#3-routing)
+        - [4) Testing](#4-testing)
+- [LATIHAN!](#latihan-1)
 
 ## A. PENGENALAN
 ![1](/assets/awal.PNG)
@@ -215,7 +216,7 @@ Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 
 
 **Langkah 3** - Dari proses penggabungan yang telah dilakukan, didapatkan sebuah subnet besar dengan netmask **/21**. Kali ini dapat menggunakan NID **192.168.0.0**, netmask **255.255.248.0**.
 
-**Langkah 4** - hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
+**Langkah 4** - Hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
 ![6](/assets/CIDR6.PNG)
 
 **Perbedaan** antara pohon VLSM dengan pohon CIDR adalah ketika satu subnet diturunkan, netmask yang akan terbentuk **disesuaikan dengan penggabungan subnet** yang telah dilakukan sebelumnya. Sebagai contoh, dari netmask besar /21, pada teknik VLSM akan dibagi dua menjadi masing-masing /22. Namun pada penggabungan yang dilakukan sebelumnya, /21 dihasilkan dari penggabungan /22 dan /24 maka subnet yang terbentuk memiliki netmask /22 dan /24.
@@ -243,15 +244,18 @@ Buka Cisco Packet Tracer, kita akan membuat topologi baru.
 
 ![1](assets/topologi.PNG)
 
-Silahkan buat topologi di atas menggunakan **Cisco Packet Tracer**. Untuk Router, Switch dan PC kalian bisa lakukan *drag and drop* pada menu :
+Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk Router, Switch dan PC kalian bisa lakukan *drag and drop* pada menu :
 
 ![1](assets/pilihan.PNG)
 
-Pada UML, dapat menggunakan topologi yang sudah dibuat pada soal shift modul [sebelumnya]().
+Pada UML, dapat menggunakan topologi yang sudah dibuat pada soal shift modul 3.
 
 #### 2) Subnetting
 
-Silahkan set **interface** GEBANG yang mengarah ke Client hosts dengan IP 192.168.0.9
+Silahkan set **interface** GEBANG yang mengarah ke Client hosts dengan IP 192.168.0.1
+* eth0 : NID_tuntap_tiap_kelompok + 2
+* subnet 2 : 192.168.1.1
+* eth3 : NID_DMZ_tiap_kelompok + 1
 
 Pada UML, buka /etc/network/interfaces untuk mengatur interface pada setiap perangkat.
 
@@ -259,7 +263,7 @@ Pada CPT, dapat mangaturnya pada menu **Config** > **INTERFACE** > **“nama int
 
 ![1](assets/gbg1.PNG)
 
-Setelah itu, MENUR silakan isi IP yang mengarah ke GEBANG dengan 192.168.0.10
+Setelah itu, MENUR silakan isi IP yang mengarah ke GEBANG dengan 192.168.0.2
 
 ![1](assets/menuratas.PNG)
 
