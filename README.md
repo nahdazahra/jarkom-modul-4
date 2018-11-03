@@ -183,11 +183,9 @@ Subnet | Jumlah IP | Netmask
 Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan netmask **/24** untuk memberikan pengalamatan IP pada subnet.
 
 **Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**.
---> bikin gambar baru
 ![1](/assets/treecidr2.PNG)
 
 **Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan pohon.
---> bikin baru gambarnya
 ![1](/assets/PohonVLSM.PNG)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
