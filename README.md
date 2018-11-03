@@ -5,7 +5,7 @@ Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
 
 - [A. PENGENALAN](#a-pengenalan)
     - [Istilah](#istilah)
-    - [IP ADDRESS](#ip-address)
+    - [IP Address](#ip-address)
     - [Subnet](#subnet)
     - [Network ID, Broadcast Address, dan Available Hosts](#network-id-broadcast-address-dan-available-hosts)
         - [Network ID](#network-id)
@@ -13,7 +13,6 @@ Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
         - [Available Hosts](#available-hosts)
     - [IP Publik dan IP Privat](#ip-publik-dan-ip-privat)
     - [Let’s Wrap and Warm Up!](#lets-wrap-and-warm-up)
-    - [LATIHAN!](#latihan)
 - [B. SUBNETTING](#b-subnetting)
     - [Pengertian](#pengertian)
     - [Perhitungan Subnet](#perhitungan-subnet)
@@ -28,7 +27,7 @@ Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
         - [2) Subnetting](#2-subnetting)
         - [3) Routing](#3-routing)
         - [4) Testing](#4-testing)
-- [LATIHAN!](#latihan-1)
+- [LATIHAN!](#latihan)
 
 ## A. PENGENALAN
 ![1](/assets/awal.PNG)
@@ -54,7 +53,7 @@ Manfaat subnetting :
 
 Sebagai permisalan, ketika Anda ingin mengantar paket, maka perlu mencantumkan alamat tujuan. Kemudian Anda kirim ke kantor pos, lalu kantor pos akan mengirimkan paket ke alamat yang dituju. Agar paket sampai ditujuan yang benar, Pak Pos yang mengirimkan paket perlu mengetahui rute untuk mencapai tujuan paket tersebut, proses tersebut yang dinamakan ***routing***. Yaitu, memberitahukan rute perjalanan kepada Pak Pos untuk mencapai alamat tujuan paket yang diantarkannya.
 
-### IP ADDRESS
+### IP Address
 IP Address (Versi 4)
 
 - Alamat IP adalah suatu alamat unik yang diberikan untuk menandai sebuah komputer yang terhubung dalam suatu jaringan.
@@ -62,7 +61,7 @@ IP Address (Versi 4)
 - Alamat IP (yang panjangnya 32 bit itu) dibagi menjadi 4 oktet (masing-masing oktet berisi 8 bit) dipisahkan dengan tanda titik.
 
 ### Subnet
-![1](/assets/subnet.PNG)
+![1](/assets/subnet-cs.png)
 
 ### Network ID, Broadcast Address, dan Available Hosts
 Jika suatu PC memiliki alamat 10.151.36.5/24, maka informasi yang dapat digali dari IP tersebut adalah:
@@ -74,10 +73,10 @@ Jika suatu PC memiliki alamat 10.151.36.5/24, maka informasi yang dapat digali d
 5. Available Hosts: Rentang alamat IP yang bisa digunakan dalam suatu jaringan/subnet
 
 Contoh skenario:
-    Carilah Network ID (NID), Broadcast Address dan rentang alamat IP dari IP 10.151.36.5/24!
+    Carilah Network ID (NID), Broadcast Address, dan rentang alamat IP dari sebuah alamat 10.151.36.5/24!
     
 Penyelesaian :
-    Informasi sementara yang didapat dari 10.151.36.5/24 adalah:
+    Informasi sementara yang didapat dari 10.151.36.5/24 adalah
     
         1. IP : 10.151.36.5
         2. Netmask : 255.255.255.0 (/24)
@@ -105,7 +104,7 @@ Alamat IP dibagi menjadi 2 jenis, yaitu :
 
 Rentang IP Privat :
 - 10.0.0.0/8 (Class A)
-- 172.16.0.0/12 - 172.31.0.0/12 (Class B)
+- 172.16.0.0/12, 172.31.0.0/12 (Class B)
 - 192.168.0.0/16 (Class C)
 
 Rentang IP Publik adalah selain rentang IP Privat di atas.
@@ -113,14 +112,11 @@ Rentang IP Publik adalah selain rentang IP Privat di atas.
 ### Let’s Wrap and Warm Up!
 ![1](/assets/latihan.PNG)
     
-### LATIHAN!
-Nah, sekarang coba kerjakan soal latihan di bawah ini.
+**Mari Diskusi**
 
-   1. Carilah Network ID, Broadcast Address dan rentang alamat IP dari 172.16.1.27/29
-   2. Apakah IP 10.151.36.5/24 memiliki rentang IP yang sama dengan 10.151.36.255/24?
-   3. Apakah IP 10.151.36.5/24 dan 10.151.36.128/24 berada dalam satu subnet? Sebutkan alasannya.
-   4. Apakah IP 10.151.252.5/22 dan 10.151.253.10/22 berada dalam satu subnet? Sebutkan alasannya.
-   5. Apakah alamat IP yang berbeda subnet pada device yang berbeda dapat saling berkomunikasi secara langsung tanpa perantara router?
+1. Carilah Network ID, Broadcast Address dan rentang alamat IP dari 172.16.1.27/29
+2. Apakah IP 10.151.36.5/24 dan 10.151.36.128/24 berada dalam satu subnet? Sebutkan alasannya.
+3. Apakah IP 10.151.252.5/22 dan 10.151.253.10/22 berada dalam satu subnet? Sebutkan alasannya.
    
 ## B. SUBNETTING
 ### Pengertian
@@ -163,11 +159,12 @@ Terdapat 8 subnet di dalam topologi. Dengan menggunakan teknik classful setiap s
 
 Inti utama dari penggunaan teknik VLSM adalah untuk mengefisienkan pembagian IP di dalam jaringan. Besar netmask disesuaikan dengan banyaknya komputer/ host yang membutuhkan alamat IP.
 
-> Jadi, pada teknik **VLSM**, subnet mask akan diberikan sesuai dengan kebutuhan jumlah alamat IP dari subnet tersebut.
+> Jadi, pada teknik **VLSM**, subnet mask (netmask) akan diberikan sesuai dengan kebutuhan jumlah alamat IP dari subnet tersebut.
 
 Contoh penerapannya, kita akan menggunakan topologi seperti contoh metode ***Classful***.
 
 **Langkah 1** - Tentukan jumlah alamat IP yang dibutuhkan oleh tiap subnet dan lakukan *labelling* netmask berdasarkan jumlah IP yang dibutuhkan.
+
 Subnet | Jumlah IP | Netmask
 -------|:---------:|:------:
  A1 | 101 | /25 |
@@ -178,24 +175,28 @@ Subnet | Jumlah IP | Netmask
  A6 | 2 | /30
  A7 | 11 | /28
  A8 | 21 | /27
-**Total** | **192**
+**Total** | **192** | **/24**
 
 Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan netmask **/24** untuk memberikan pengalamatan IP pada subnet.
 
-**Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**.
---> bikin gambar baru
-![1](/assets/treecidr2.PNG)
+**Catatan**
+
+> Penentuan subnet mask (netmask) ***root*** dalam pembagian IP tidak hanya berdasarkan **jumlah** IP yang dibutuhkan, tetapi perlu diperhatikan juga berapa banyak netmask yang dibutuhkan oleh subnet yang ada dalam topologi tersebut. Seperti pada contoh yang kita gunakan, karena netmask terbesar yang dibutuhkan adalah **/25** dan hanya terdapat 1 subnet yang membutuhkan subnet tersebut, maka pembagian IP dapat dilakukan mulai dari netmask **/24**.
+
+**Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**. Hitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan pohon seperti gambar di bawah.
+
+![1](/assets/pohon_vlsm1.PNG)
 
 **Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan pohon.
---> bikin baru gambarnya
-![1](/assets/PohonVLSM.PNG)
+
+![1](/assets/pohon_vlsm2.PNG)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 ![1](/assets/TabelVLSM.PNG)
 
 ##### 2. CIDR (Classless Inter Domain Routing)
 
-Perhitungan pada teknik CIDR didasarkan pada jumlah komputer/ host yang ada di dalam subnet. Tetapi cara mendapatkan subnet besar tidak sama dengan VLSM. Penerapan teknik CIDR dapat dilakukan dengan langkah sebagai berikut.
+Perhitungan pada teknik CIDR juga didasarkan pada jumlah komputer/ host yang ada di dalam subnet. Tetapi cara mendapatkan subnet besar tidak sama dengan VLSM. Penerapan teknik CIDR dapat dilakukan dengan langkah sebagai berikut.
 
 **Langkah 1** - Tentukan subnet yang ada dalam topologi dan lakukan *labelling* netmask terhadap masing-masing subnet. Contohnya dapat dilihat pada gambar berikut.
 ![1](/assets/CIDR1.PNG)
@@ -220,7 +221,9 @@ Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 
 **Langkah 4** - Hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
 ![6](/assets/CIDR6.PNG)
 
-**Perbedaan** antara pohon VLSM dengan pohon CIDR adalah ketika satu subnet diturunkan, netmask yang akan terbentuk **disesuaikan dengan penggabungan subnet** yang telah dilakukan sebelumnya. Sebagai contoh, dari netmask besar /21, pada teknik VLSM akan dibagi dua menjadi masing-masing /22. Namun pada penggabungan yang dilakukan sebelumnya, /21 dihasilkan dari penggabungan /22 dan /24 maka subnet yang terbentuk memiliki netmask /22 dan /24.
+> **Catatan**
+
+> **Perbedaan** antara pohon VLSM dengan pohon CIDR adalah ketika satu subnet diturunkan, netmask yang akan terbentuk **disesuaikan dengan penggabungan subnet** yang telah dilakukan sebelumnya. Sebagai contoh, dari netmask besar /21, pada teknik VLSM akan dibagi dua menjadi masing-masing /22. Namun pada penggabungan yang dilakukan sebelumnya, /21 dihasilkan dari penggabungan /22 dan /24 maka subnet yang terbentuk memiliki netmask /22 dan /24.
 
 **Langkah 5** - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berikut.
 ![9](/assets/CIDR7.PNG)
@@ -232,31 +235,48 @@ Jika kalian menggunakan CIDR maka netmask yang terbentuk akan menjadi lebih besa
 ### Pengertian
 Setelah mengetahui bagaimana cara ***Subnetting*** suatu jaringan dan metode pembagian IP, terdapat satu hal lain yang perlu diketahui yaitu ***Routing***.
 
-Dalam perkembangan dunia jaringan muncul banyak protokol routing yang dapat memudahkan administrator jaringan. Protokol-protokol *routing* tersebut dapat membuat tabel routing yang diperbarui secara otomatis, teknik tersebut biasa disebut ***Dynamic Routing*** (**Perutean Dinamis**). Beberapa protokol *routing* dinamis terkenal antara lain RIP, RIP versi 2, EIGRP, dan OSPF. Protokol-protokol tersebut tidak dipelajari pada modul ini, namun dapat dipelajari lebih lanjut pada mata kuliah TAJ di semester 5 (gasal).
+Dalam perkembangan dunia jaringan muncul banyak protokol *routing* yang dapat memudahkan administrator jaringan karena dapat memperbarui tabel routingnya secara otomatis, teknik tersebut dinamakan ***Dynamic Routing*** (**Perutean Dinamis**). Beberapa protokol *routing* dinamis terkenal antara lain RIP, RIP versi 2, EIGRP, dan OSPF. Protokol-protokol tersebut tidak dipelajari pada modul ini, namun dapat dipelajari lebih lanjut pada mata kuliah TAJ di semester 5 (gasal).
 
-Routing yang dibahas pada modul kali ini yaitu ***Static Routing*** (**Perutean Statis**), yang mengharuskan administrator jaringan untuk menambahkan/ memberitahukan rute (*route*) baru ke dalam tabel routing ketika terdapat subnet tambahan dalam jaringannya.
+Routing yang dibahas yaitu ***Static Routing*** (**Perutean Statis**), yang mengharuskan administrator jaringan untuk menambahkan/ memberitahukan rute (*route*) baru ke dalam tabel routing ketika terdapat subnet tambahan dalam jaringannya.
 
-Konsep routing static sederhana, daftarkan NID dan netmask yang ada serta tentukan gateway untuk menuju ke subnet tersebut. Untuk mencoba teknik *routing static*, kita akan menggunakan aplikasi **Cisco Packet Tracer**.
+Konsep *static routing* sederhana, daftarkan NID dan netmask yang ada serta tentukan gateway untuk menuju ke subnet tersebut. Untuk mencoba teknik *routing static*, kita akan menggunakan aplikasi **Cisco Packet Tracer**.
 
 ### Praktik
-Buka Cisco Packet Tracer, kita akan membuat topologi baru.
+Buka aplikasi Cisco Packet Tracer, kita akan membuat topologi baru.
 
 #### 1) Membuat Topologi
 
-![1](assets/topologi.PNG)
+--> [ganti topologi]
 
-Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk Router, Switch dan PC kalian bisa lakukan *drag and drop* pada menu :
+![1](assets/topologi_1.PNG)
 
-![1](assets/pilihan.PNG)
+Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Router, Switch, dan PC dapat dilakukan dengan *drag and drop* yang ada pada menu. Pada praktik kali ini, sesuaikan *device* dengan pilihan dengan kotak merah pada gambar di bawah 
 
-Pada UML, dapat menggunakan topologi yang sudah dibuat pada soal shift modul 3.
+* untuk menambahkan Router
+
+![menu1](assets/menu_router.png)
+
+* untuk menambahkan Switch
+
+![menu1](assets/menu_switch.png)
+
+* untuk menambahkan PC
+
+![menu1](assets/menu_PC.png)
+
+* untuk menambahkan Cable
+
+![menu1](assets/menu_cable.png)
+
+* untuk menambahkan Cloud
+
+![menu1](assets/menu_cloud.png)
+
+Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pengenalan UML](https://github.com/rohanaq/Modul-Pengenalan-UML) dengan **catatan** setiap *device* yang akan terhubung **harus** ditambahkan ***switch***.
 
 #### 2) Subnetting
 
-Silahkan set **interface** GEBANG yang mengarah ke Client hosts dengan IP 192.168.0.1
-* eth0 : NID_tuntap_tiap_kelompok + 2
-* subnet 2 : 192.168.1.1
-* eth3 : NID_DMZ_tiap_kelompok + 1
+Silahkan set **interface** BATAGOR yang mengarah ke Client hosts dengan IP 192.168.0.1
 
 Pada UML, buka /etc/network/interfaces untuk mengatur interface pada setiap perangkat.
 
@@ -264,7 +284,7 @@ Pada CPT, dapat mangaturnya pada menu **Config** > **INTERFACE** > **“nama int
 
 ![1](assets/gbg1.PNG)
 
-Setelah itu, MENUR silakan isi IP yang mengarah ke GEBANG dengan 192.168.0.2
+Setelah itu, MENUR silakan isi IP yang mengarah ke BATAGOR dengan 192.168.0.2
 
 ![1](assets/menuratas.PNG)
 
@@ -283,18 +303,21 @@ Pada CPT, atur IP host/client dengan cara:
 
 ![1](assets/ipconfngagel.PNG)
 
-Jika sebelumnya kalian bisa melakukan ping Dari GEBANG langsung ke NGAGEL, pada topologi ini kita tidak akan bisa melakukan tersebut. Hal tersebut karena GEBANG dan NGAGEL tidak berada pada **subnet** yang sama, agar mereka bisa mengakases satu sama lain, maka diperlukan ***routing***.
+Jika sebelumnya kalian bisa melakukan ping Dari BATAGOR langsung ke NGAGEL, pada topologi ini kita tidak akan bisa melakukan tersebut. Hal tersebut karena BATAGOR dan NGAGEL tidak berada pada **subnet** yang sama, agar mereka bisa mengakases satu sama lain, maka diperlukan ***routing***.
 
 #### 3) Routing
 
-Pada CPT, ***Routing*** dapat dilakukan pada menu **Config** > **Routing** > **Static** pada device **Router**. Lalu isi **Static Routes** seperti gambar dibawah pada GEBANG dan tekan tombol **Add**.
+Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM** yang telah kita lakukan sebelumnya.
+
+![pohon routing](assets/pohon_vlsm2.PNG)
+Pada CPT, ***Routing*** dapat dilakukan pada menu **Config** > **Routing** > **Static** pada device **Router**. Lalu isi **Static Routes** seperti gambar dibawah pada BATAGOR dan tekan tombol **Add**.
 
 ![1](assets/routing1.PNG)
 
 ***Keterangan*** : 
 1. Network 192.168.0.0 adalah Network ID yang akan dihubungkan
 2. Mask 255.255.255.248 adalah netmask dari subnet NGAGEL dan NGINDEN
-3. Next Hop 192.168.0.10 atau disebut dengan **gateway**, adalah IP yang dituju ketika ingin menuju subnet poin 1, yaitu interface pada MENUR yang mengarah ke GEBANG
+3. Next Hop 192.168.0.10 atau disebut dengan **gateway**, adalah IP yang dituju ketika ingin menuju subnet poin 1, yaitu interface pada MENUR yang mengarah ke BATAGOR
 
 Pada **UML**, *routing* dapat dilakukan dengan perintah :
 
@@ -304,10 +327,10 @@ Lalu lihat hasil *routing* dengan perintah :
 
     route –n
 
-Maka sekarang, GEBANG dan NGAGEL sudah saling terhubung.
+Maka sekarang, BATAGOR dan NGAGEL sudah saling terhubung.
 Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
 
-1. Pada GEBANG
+1. Pada BATAGOR
     
         Network 10.151.77.120 Netmask 255.255.255.248 Next Hop 192.168.1.2
         Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 10.151.76.1
@@ -320,6 +343,7 @@ Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
         
         Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.1.1
 
+Pada pembahasan teknik [CIDR]()
 **Kesimpulannya**, routing statis disesuaikan dengan daftar NID yang ada. Semakin banyak NID dalam suatu topologi, semakin banyak pula rute yang perlu ditambahkan ke router, maka diperlukan teknik pengelompokkan (***Subnetting***) yang tepat untuk menyederhanakan ***Routing***.
         
 #### 4) Testing
