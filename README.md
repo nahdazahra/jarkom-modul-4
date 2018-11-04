@@ -278,7 +278,10 @@ Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Rou
 
 ![menu1](assets/menu_cable.png)
 
-* jika terdapat peringatan (*alert*) ketika menyambungkan kabel antar device, tambahkan terlebih dahulu.
+* jika terdapat peringatan (*alert*) ketika menyambungkan kabel antar device, tambahkan port pada router terlebih dahulu.
+
+![tambah port](assets/add_modul_router.png)
+
 Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pengenalan UML](https://github.com/rohanaq/Modul-Pengenalan-UML) dengan **catatan** setiap *device* yang akan terhubung **harus** dihubungkan menggunakan ***switch***.
 
 #### 2) Subnetting
@@ -342,8 +345,7 @@ Lalu lihat hasil *routing* dengan perintah :
 
     route -n
 
-Maka sekarang, BATAGOR dan NGAGEL sudah saling terhubung.
-Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
+Maka sekarang, BATAGOR dan *host* pada LOTEK sudah saling terhubung. Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
 
 1. Pada BATAGOR
     
@@ -370,8 +372,6 @@ Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
 5. Pada DOROKDOK
 
         Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.1.13
-
-Pada pembahasan teknik [CIDR](#2-cidr-classless-inter-domain-routing)
 
 **Kesimpulannya**, untuk melakukan *static routing* disesuaikan dengan daftar NID yang ada. Semakin banyak NID dalam suatu topologi, semakin banyak pula rute yang perlu ditambahkan ke router, maka diperlukan teknik pengelompokkan (***Subnetting***) yang tepat untuk menyederhanakan ***Routing***.
         
