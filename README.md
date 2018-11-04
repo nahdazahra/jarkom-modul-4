@@ -192,7 +192,7 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan ne
 
 ![1](/assets/pohon_vlsm1.PNG)
 
-**Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
+**Langkah 3** - Lakukan subnetting dengan menggunakan pohon tersebut untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
 ![1](/assets/pohon_vlsm2.PNG)
 
@@ -232,9 +232,10 @@ Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 
 > **Perbedaan** antara pohon VLSM dengan pohon CIDR adalah ketika satu subnet diturunkan, netmask yang akan terbentuk **disesuaikan dengan penggabungan subnet** yang telah dilakukan sebelumnya. Sebagai contoh, dari netmask besar /21, pada teknik VLSM akan dibagi dua menjadi masing-masing /22. Namun pada penggabungan yang dilakukan sebelumnya, /21 dihasilkan dari penggabungan /22 dan /24 maka subnet yang terbentuk memiliki netmask /22 dan /24.
 
 **Langkah 5** - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berikut.
+
 ![9](/assets/CIDR7.PNG)
 
-Jika kalian menggunakan CIDR maka netmask yang terbentuk akan menjadi lebih besar dibandingkan dengan menggunakan VLSM. Tetapi **keunggulan** dari teknik CIDR salah satunya adalah ketika muncul subnet baru di dalam topologi, tidak perlu melakukan penghitungan kembali karena kemungkinan besar masih ada interval (*range*) IP yang tidak terpakai. Selain itu, teknik CIDR juga memudahkan dalam proses *routing*. Tabel routing pada teknik CIDR umumnya lebih sederhana dibandingkan teknik VLSM. 
+Jika kalian menggunakan CIDR maka netmask yang terbentuk akan menjadi lebih besar dibandingkan dengan menggunakan VLSM. Tetapi salah satu **keunggulan** teknik **CIDR** adalah ketika terdapat subnet baru yang ditambahkan dalam topologi, **tidak perlu melakukan penghitungan kembali** karena kemungkinan besar masih ada interval (*range*) IP yang tidak terpakai. Selain itu, teknik CIDR juga mengefisienkan *routing* karena umumnya tabel routing yang dimiliki lebih sederhana dibandingkan teknik VLSM.
 
 ## C. ROUTING
 
@@ -248,6 +249,7 @@ Routing yang dibahas yaitu ***Static Routing*** (**Perutean Statis**), yang meng
 Konsep *static routing* sederhana, daftarkan NID dan netmask yang ada serta tentukan gateway untuk menuju ke subnet tersebut. Untuk mencoba teknik *routing static*, kita akan menggunakan aplikasi **Cisco Packet Tracer**.
 
 ### Praktik
+
 Buka aplikasi Cisco Packet Tracer, kita akan membuat topologi baru.
 
 #### 1) Membuat Topologi
