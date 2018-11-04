@@ -33,6 +33,7 @@ Modul 4 kali ini akan membahas tentang ***Subnetting*** dan ***Routing***.
 ![1](/assets/awal.PNG)
 
 ### Istilah
+
 Istilah | Penjelasan
 --------|-----------
 iface | Disebut network interface, antarmuka yang menghubungkan 2 layer protokol. Setiap interface memiliki nama yang berbeda
@@ -87,14 +88,18 @@ Penyelesaian :
    Berikut akan dijelaskan bagaimana mencari NID, Broadcast Address, dan Available Host:
    
 #### Network ID
-Mencari Network ID (NID) :
+Mencari Network ID (NID)
+
 ![1](/assets/NID.PNG)
 
 #### Broadcast Address
+Mencari Broadcast Address
+
 ![1](/assets/BID.PNG)
 
 #### Available Hosts
-Mencari Rentang Alamat IP:
+Mencari rentang alamat IP
+
 ![1](/assets/rentang.PNG)
 
 ### IP Publik dan IP Privat
@@ -187,11 +192,12 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan ne
 
 ![1](/assets/pohon_vlsm1.PNG)
 
-**Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan pohon.
+**Langkah 3** - Lakukan subnetting dengan menggunakan pohon pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
 ![1](/assets/pohon_vlsm2.PNG)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
+
 ![1](/assets/TabelVLSM.PNG)
 
 ##### 2. CIDR (Classless Inter Domain Routing)
@@ -208,7 +214,7 @@ Subnet **B1** merupakan hasil penggabungan dari subnet **A1** dan **A2**, Subnet
 
 > ***Mengapa subnet B1 memiliki netmask /24? Dan subnet B2 memiliki netmask /26?***
 
-Perhatikan subnet **A1** dan **A2**. Subnet **A1** memiliki netmask /25, dan subnet **A2** memiliki netmask /30. Pada teknik **CIDR** subnet gabungan akan memiliki netmask yang **1 tingkat di atas subnet terbesar yang digabungkan**. Berdasarkan contoh di atas A1 = /25 dan A2 = /30, maka jika dilakukan penggabungan akan menjadi subnet B1 dengan netmask /24. Begitu pula dengan subnet B2.
+Perhatikan subnet **A1** dan **A2**. Subnet **A1** memiliki netmask /25, dan subnet **A2** memiliki netmask /30. Pada teknik **CIDR** subnet gabungan akan memiliki netmask yang **1 tingkat di atas subnet terbesar yang digabungkan**. Berdasarkan contoh di atas A1 = /25 dan A2 = /30, maka jika dilakukan penggabungan akan menjadi subnet **B1** dengan netmask **/24**. Begitu pula dengan subnet B2.
 
 Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 topologi yang kita miliki.
 
@@ -246,9 +252,7 @@ Buka aplikasi Cisco Packet Tracer, kita akan membuat topologi baru.
 
 #### 1) Membuat Topologi
 
---> [ganti topologi]
-
-![1](assets/topologi_1.PNG)
+![1](assets/top1.PNG)
 
 Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Router, Switch, dan PC dapat dilakukan dengan *drag and drop* yang ada pada menu. Pada praktik kali ini, sesuaikan *device* dengan pilihan dengan kotak merah pada gambar di bawah 
 
@@ -272,7 +276,7 @@ Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Rou
 
 ![menu1](assets/menu_cloud.png)
 
-Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pengenalan UML](https://github.com/rohanaq/Modul-Pengenalan-UML) dengan **catatan** setiap *device* yang akan terhubung **harus** ditambahkan ***switch***.
+Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pengenalan UML](https://github.com/rohanaq/Modul-Pengenalan-UML) dengan **catatan** setiap *device* yang akan terhubung **harus** dihubungkan menggunakan ***switch***.
 
 #### 2) Subnetting
 
