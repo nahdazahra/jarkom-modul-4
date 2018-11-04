@@ -254,9 +254,13 @@ Buka aplikasi Cisco Packet Tracer, kita akan membuat topologi baru.
 
 #### 1) Membuat Topologi
 
-![1](assets/top1.PNG)
+![1](assets/top_modul.png)
 
 Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Router, Switch, dan PC dapat dilakukan dengan *drag and drop* yang ada pada menu. Pada praktik kali ini, sesuaikan *device* dengan pilihan dengan kotak merah pada gambar di bawah 
+
+* untuk menambahkan Cloud
+
+![menu1](assets/menu_cloud.png)
 
 * untuk menambahkan Router
 
@@ -274,10 +278,7 @@ Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Rou
 
 ![menu1](assets/menu_cable.png)
 
-* untuk menambahkan Cloud
-
-![menu1](assets/menu_cloud.png)
-
+* jika terdapat peringatan (*alert*) ketika menyambungkan kabel antar device, tambahkan terlebih dahulu.
 Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pengenalan UML](https://github.com/rohanaq/Modul-Pengenalan-UML) dengan **catatan** setiap *device* yang akan terhubung **harus** dihubungkan menggunakan ***switch***.
 
 #### 2) Subnetting
@@ -288,80 +289,100 @@ Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM**
 
 ![pohon routing](assets/pohon_vlsm2.PNG)
 
-Silahkan set **interface** BATAGOR yang mengarah ke Client hosts dengan IP 192.168.0.1
+Atur IP untuk masing-masing **interface** yang ada di setiap *device* sesuai dengan pembagian subnet pada pohon **VLSM**.
 
 Pada UML, buka /etc/network/interfaces untuk mengatur interface pada setiap perangkat.
 
-Pada CPT, dapat mangaturnya pada menu **Config** > **INTERFACE** > **“nama interface”** (contoh: FastEthernet0/0). Isi alamat IP dan subnet mask dari interface tersebut.
+Pada CPT, interface dapat diatur pada menu **Config** > **INTERFACE** > **“nama interface”** (contoh: FastEthernet0/0). Isi alamat IP dan subnet mask dari subnet interface tersebut. Berikut contoh untuk mengatur IP pada subnet **A4**.
 
-![1](assets/gbg1.PNG)
+Atur IP pada interface BATAGOR yang mengarah ke LOTEK dengan **192.168.1.5**.
 
-Setelah itu, MENUR silakan isi IP yang mengarah ke BATAGOR dengan 192.168.0.2
+![1](assets/conf_1.png)
 
-![1](assets/menuratas.PNG)
+Atur IP pada interface LOTEK yang mengarah ke BATAGOR dengan **192.168.1.6**.
 
-Setelah itu, MENUR silakan isi IP yang mengarah ke NGAGEL dan NGINDEN dengan 192.168.0.1
+![1](assets/conf_2.png)
 
-![1](assets/menurbawah.PNG)
+Selanjutnya atur IP pada subnet A3.
+Atur IP pada interface LOTEK yang mengarah ke *client* dengan **192.168.1.65**.
 
-Lalu atur IP NGAGEL dengan **192.168.0.2**.
+![1](assets/conf_3.png)
 
-Pada CPT, atur IP host/client dengan cara:
-- Masuk ke NGAGEL
+Atur IP pada *client* LOTEK dengan cara :
+- Masuk ke *client*
 - Pilih tab Desktop
 - Pilih IP Configuration
 
-![1](assets/ngagel1.PNG)
+![1](assets/conf_4.png)
 
-![1](assets/ipconfngagel.PNG)
+![1](assets/conf_5.png)
 
-Jika sebelumnya kalian bisa melakukan ping Dari BATAGOR langsung ke NGAGEL, pada topologi ini kita tidak akan bisa melakukan tersebut. Hal tersebut karena BATAGOR dan NGAGEL tidak berada pada **subnet** yang sama, agar mereka bisa mengakases satu sama lain, maka diperlukan ***routing***.
+Lakukan hal yang sama untuk mengatur alamat IP setiap ***interface*** pada device yang ada dalam topologi. Setelah selesai, lakukan langkah selanjutnya yaitu ***Routing*** agar topologi dapat berfungsi dengan semestinya.
 
 #### 3) Routing
 
-Pada CPT, ***Routing*** dapat dilakukan pada menu **Config** > **Routing** > **Static** pada device **Router**. Lalu isi **Static Routes** seperti gambar dibawah pada BATAGOR dan tekan tombol **Add**.
+Pada CPT, ***Routing*** dapat dilakukan pada menu **Config** > **Routing** > **Static** pada device **Router**. Lalu isi **Static Routes** seperti gambar dibawah pada BATAGOR dan tekan tombol **Add**
 
-![1](assets/routing1.PNG)
+![1](assets/routing1.png)
+
+Pada *static routing* juga dibutuhkan ***default routing*** agar router dapat mengirimkan paket sesuai dengan tujuan. Default routing dibutuhkan untuk router yang berada di bawah router utama (router yang terhubung internet), contohnya LOTEK
+
+![2](assets/routing2.png)
 
 ***Keterangan*** : 
-1. Network 192.168.0.0 adalah Network ID yang akan dihubungkan
-2. Mask 255.255.255.248 adalah netmask dari subnet NGAGEL dan NGINDEN
-3. Next Hop 192.168.0.10 atau disebut dengan **gateway**, adalah IP yang dituju ketika ingin menuju subnet poin 1, yaitu interface pada MENUR yang mengarah ke BATAGOR
+1. Network 192.168.1.64 adalah Network ID yang akan dihubungkan
+2. Mask 255.255.255.192 adalah netmask dari subnet A3
+3. Next Hop 192.168.1.65 (disebut **gateway**), adalah IP yang dituju ketika ingin menuju subnet poin 1, yaitu interface pada LOTEK yang mengarah ke BATAGOR
 
-Pada **UML**, *routing* dapat dilakukan dengan perintah :
+Pada **UML**, *routing* dilakukan pada device ***router*** dengan perintah :
 
-    route add –net <NID subnet> netmask <netmask> gw <IP gateway>
+    route add -net <NID subnet> netmask <netmask> gw <IP gateway>
 
 Lalu lihat hasil *routing* dengan perintah :
 
-    route –n
+    route -n
 
 Maka sekarang, BATAGOR dan NGAGEL sudah saling terhubung.
 Agar semua subnet dapat saling terhubung, tambahkan *static routing* berikut :
 
 1. Pada BATAGOR
     
-        Network 10.151.77.120 Netmask 255.255.255.248 Next Hop 192.168.1.2
-        Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 10.151.76.1
+        Network 192.168.1.128 Netmask 255.255.255.128 Next Hop 192.168.1.6
+        Network 192.168.1.0 Netmask 255.255.255.252 Next Hop 192.168.1.6
+        Network 192.168.1.12 Netmask 255.255.255.252 Next Hop 192.168.1.10
+        Network 192.168.1.16 Netmask 255.255.255.240 Next Hop 192.168.1.10
+        Network 192.168.1.32 Netmask 255.255.255.224 Next Hop 192.168.1.10
 
-2. Pada MENUR
+2. Pada LOTEK
 
-        Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.0.9
+        Network 192.168.1.128 Netmask 255.255.255.128 Next Hop 192.168.1.2
 
-3. Pada BRATANG
+3. Pada PEUYEUM
         
         Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.1.1
 
-Pada pembahasan teknik [CIDR]()
-**Kesimpulannya**, routing statis disesuaikan dengan daftar NID yang ada. Semakin banyak NID dalam suatu topologi, semakin banyak pula rute yang perlu ditambahkan ke router, maka diperlukan teknik pengelompokkan (***Subnetting***) yang tepat untuk menyederhanakan ***Routing***.
+4. Pada KAREDOK
+
+        Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.1.9
+        Network 192.168.1.16 Netmask 255.255.255.240 Next Hop 192.168.1.14
+        Network 192.168.1.32 Netmask 255.255.255.224 Next Hop 192.168.1.14
+
+5. Pada DOROKDOK
+
+        Network 0.0.0.0 Netmask 0.0.0.0 Next Hop 192.168.1.13
+
+Pada pembahasan teknik [CIDR](#2-cidr-classless-inter-domain-routing)
+
+**Kesimpulannya**, untuk melakukan *static routing* disesuaikan dengan daftar NID yang ada. Semakin banyak NID dalam suatu topologi, semakin banyak pula rute yang perlu ditambahkan ke router, maka diperlukan teknik pengelompokkan (***Subnetting***) yang tepat untuk menyederhanakan ***Routing***.
         
 #### 4) Testing
 
-Untuk mengetesnya dapat dilakukan dengan cara ping dari client ke IP tujuan atau menggunakan tombol dengan ikon surat di bagian kanan
+Untuk mengetesnya dapat dilakukan dengan cara ping dari client ke IP tujuan atau menggunakan tombol dengan ikon surat pada *toolbar*.
 
 ![1](assets/menu.PNG)
 
 ## LATIHAN!
+
 ![1](assets/SOAL_LATIHAN_MODUL4.PNG)
 
 Implementasikan subnetting dan routing topologi di atas pada Cisco Packet Tracer dan UML menggunakan teknik subnetting yang berbeda! Contoh pada Cisco Packet Tracer menggunakan CIDR, pada UML menggunakan VLSM atau sebaliknya. (Untuk UML, tiap subnet diwakili satu client/komputer saja) 
