@@ -280,6 +280,12 @@ Pada UML, buatlah topologi tersebut seperti yang telah diajarkan pada [modul pen
 
 #### 2) Subnetting
 
+Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM** yang telah kita lakukan sebelumnya.
+
+![1](/assets/top2.PNG)
+
+![pohon routing](assets/pohon_vlsm2.PNG)
+
 Silahkan set **interface** BATAGOR yang mengarah ke Client hosts dengan IP 192.168.0.1
 
 Pada UML, buka /etc/network/interfaces untuk mengatur interface pada setiap perangkat.
@@ -311,9 +317,6 @@ Jika sebelumnya kalian bisa melakukan ping Dari BATAGOR langsung ke NGAGEL, pada
 
 #### 3) Routing
 
-Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM** yang telah kita lakukan sebelumnya.
-
-![pohon routing](assets/pohon_vlsm2.PNG)
 Pada CPT, ***Routing*** dapat dilakukan pada menu **Config** > **Routing** > **Static** pada device **Router**. Lalu isi **Static Routes** seperti gambar dibawah pada BATAGOR dan tekan tombol **Add**.
 
 ![1](assets/routing1.PNG)
