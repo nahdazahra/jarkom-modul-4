@@ -205,10 +205,10 @@ Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 Perhitungan pada teknik CIDR juga didasarkan pada jumlah komputer/ host yang ada di dalam subnet. Tetapi cara mendapatkan subnet besar tidak sama dengan VLSM. Penerapan teknik CIDR dapat dilakukan dengan langkah sebagai berikut.
 
 **Langkah 1** - Tentukan subnet yang ada dalam topologi dan lakukan *labelling* netmask terhadap masing-masing subnet. Contohnya dapat dilihat pada gambar berikut.
-![1](/assets/CIDR1.PNG)
+![1](/assets/cidr1.png)
 
 **Langkah 2** - Gabungkan subnet paling bawah di dalam topologi. Paling bawah berarti subnet yang paling jauh dari internet (gambar awan). Maka pada topologi yang digunakan kali ini, subnet yang dapat digabungkan adalah **A1** dengan **A2** dan subnet **A7** dengan **A8**. Subnet yang digabung tersebut akan membentuk sebuah subnet lebih besar dari subnet-subnet kecil yang ada di dalamnya.
-![2](/assets/CIDR2.PNG)
+![2](/assets/cidr2.png)
 
 Subnet **B1** merupakan hasil penggabungan dari subnet **A1** dan **A2**, Subnet **B2** merupakan hasil penggabungan dari subnet **A7** dan **A8**.
 
@@ -218,9 +218,11 @@ Perhatikan subnet **A1** dan **A2**. Subnet **A1** memiliki netmask /25, dan sub
 
 Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 topologi yang kita miliki.
 
-![3](/assets/CIDR3.PNG)
-![4](/assets/CIDR4.PNG)
-![5](/assets/CIDR5.PNG)
+![3](/assets/cidr3.png)
+
+![4](/assets/cidr4.png)
+
+![5](/assets/cidr5.png)
 
 **Langkah 3** - Dari proses penggabungan yang telah dilakukan, didapatkan sebuah subnet besar dengan netmask **/21**. Kali ini dapat menggunakan NID **192.168.0.0**, netmask **255.255.248.0**.
 
