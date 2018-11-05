@@ -293,7 +293,7 @@ Praktik kali ini akan menerapkan cara routing untuk teknik *subnetting* **VLSM**
 
 ![1](/assets/top2.PNG)
 
-![pohon routing](assets/pohon_vlsm2.PNG)
+![pohon routing](assets/pohon_vlsm2.png)
 
 Atur IP untuk masing-masing **interface** yang ada di setiap *device* sesuai dengan pembagian subnet pada pohon **VLSM**.
 
