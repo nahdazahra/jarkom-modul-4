@@ -190,11 +190,11 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita dapat menggunakan ne
 
 **Langkah 2** - Subnet besar yang dibentuk memiliki NID **192.168.1.0** dengan netmask **/24**. Hitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan pohon seperti gambar di bawah.
 
-![1](/assets/pohon_vlsm1.PNG)
+![1](/assets/pohon_vlsm1.png)
 
 **Langkah 3** - Lakukan subnetting dengan menggunakan pohon tersebut untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada.
 
-![1](/assets/pohon_vlsm2.PNG)
+![1](/assets/pohon_vlsm2.png)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 
@@ -227,6 +227,7 @@ Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 
 **Langkah 3** - Dari proses penggabungan yang telah dilakukan, didapatkan sebuah subnet besar dengan netmask **/21**. Kali ini dapat menggunakan NID **192.168.0.0**, netmask **255.255.248.0**.
 
 **Langkah 4** - Hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
+
 ![6](/assets/CIDR6.PNG)
 
 > **Catatan**
@@ -244,7 +245,7 @@ Jika kalian menggunakan CIDR maka netmask yang terbentuk akan menjadi lebih besa
 ### Pengertian
 Setelah mengetahui bagaimana cara ***Subnetting*** suatu jaringan dan metode pembagian IP, terdapat satu hal lain yang perlu diketahui yaitu ***Routing***.
 
-Dalam perkembangan dunia jaringan muncul banyak protokol *routing* yang dapat memudahkan administrator jaringan karena dapat memperbarui tabel routingnya secara otomatis, teknik tersebut dinamakan ***Dynamic Routing*** (**Perutean Dinamis**). Beberapa protokol *routing* dinamis terkenal antara lain RIP, RIP versi 2, EIGRP, dan OSPF. Protokol-protokol tersebut tidak dipelajari pada modul ini, namun dapat dipelajari lebih lanjut pada mata kuliah TAJ di semester 5 (gasal).
+Dalam perkembangan dunia jaringan muncul banyak protokol *routing* yang dapat memudahkan administrator jaringan karena dapat memperbarui tabel routingnya secara otomatis, teknik tersebut dinamakan ***Dynamic Routing*** (**Perutean Dinamis**). Beberapa protokol *routing* dinamis terkenal antara lain RIP, RIP versi 2, EIGRP, dan OSPF. Protokol-protokol tersebut tidak dipelajari pada modul ini, namun dapat dipelajari lebih lanjut pada mata kuliah TAJ di semester 7 (gasal).
 
 Routing yang dibahas yaitu ***Static Routing*** (**Perutean Statis**), yang mengharuskan administrator jaringan untuk menambahkan/ memberitahukan rute (*route*) baru ke dalam tabel routing ketika terdapat subnet tambahan dalam jaringannya.
 
@@ -256,7 +257,7 @@ Buka aplikasi Cisco Packet Tracer, kita akan membuat topologi baru.
 
 #### 1) Membuat Topologi
 
-![1](assets/top_modul.png)
+![1](assets/top1.PNG)
 
 Silakan buat topologi menggunakan **Cisco Packet Tracer**. Untuk menambahkan Router, Switch, dan PC dapat dilakukan dengan *drag and drop* yang ada pada menu. Pada praktik kali ini, sesuaikan *device* dengan pilihan dengan kotak merah pada gambar di bawah 
 
