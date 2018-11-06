@@ -142,7 +142,7 @@ Pembagian IP dengan menggunakan metode ini didasarkan pada pembagian class pada 
 
 Class | Netmask | Jumlah Host
 ------|---------|------------
-Class A | /8 | 4 Milyar
+Class A | /8 | 16777216
 Class B | /16 | 65536
 Class C | /24 | 256
 
